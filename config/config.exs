@@ -2,44 +2,44 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :alfred_bot, AlfredBot.Responders.Standup,
-  time_of_day: "30 10 * * 1-5",
-  slack_channel: System.get_env("STANDUP_CHANNEL") || "general",
-  suffix: ["folks", "hackers", "peeps", "avengers"],
-  msg: "Standup time",
-  enabled: true
+# config :alfred_bot, AlfredBot.Responders.Standup,
+#   time_of_day: "30 10 * * 1-5",
+#   slack_channel: System.get_env("STANDUP_CHANNEL") || "general",
+#   suffix: ["folks", "hackers", "peeps", "avengers"],
+#   msg: "Standup time",
+#   enabled: true
 
-config :alfred_bot, AlfredBot.Responders.Github,
-  repos: ["techgaun/alfred_bot"],
-  access_token: System.get_env("GITHUB_TOKEN"),
-  schedule: "0 */1 * * *",
-  slack_channel: System.get_env("GH_CHANNEL") || "general",
-  created_time_threshold: 10800, # no old than 3 hours
-  updated_time_threshold: 3600, # no old than 1 hour
-  enabled: true
+# config :alfred_bot, AlfredBot.Responders.Github,
+#   repos: ["techgaun/alfred_bot"],
+#   access_token: System.get_env("GITHUB_TOKEN"),
+#   schedule: "0 */1 * * *",
+#   slack_channel: System.get_env("GH_CHANNEL") || "general",
+#   created_time_threshold: 10800, # no old than 3 hours
+#   updated_time_threshold: 3600, # no old than 1 hour
+#   enabled: true
 
-config :alfred_bot, AlfredBot.Responders.Quote,
-  quote_src: "files/quotes.txt"
+# config :alfred_bot, AlfredBot.Responders.Quote,
+#   quote_src: "files/quotes.txt"
 
-config :alfred_bot, AlfredBot.Responders.Pwned,
-  schedule: "59 23 */1 * *",
-  enabled: true,
-  accounts: [
-    "abc@example.com",
-    "def@example.com"
-  ],
-  slack_channel: System.get_env("PWN_CHANNEL") || "general"
+# config :alfred_bot, AlfredBot.Responders.Pwned,
+#   schedule: "59 23 */1 * *",
+#   enabled: true,
+#   accounts: [
+#     "abc@example.com",
+#     "def@example.com"
+#   ],
+#   slack_channel: System.get_env("PWN_CHANNEL") || "general"
 
-config :alfred_bot, AlfredBot.Responders.Uptime,
-  schedule: "*/5 * * * *",
-  enabled: true,
-  endpoints: [
-    [
-      uri: "https://api.brighterlink.io/status", status_code: 200, content: ~s("msg":"ok"), method: "GET",
-      content_type: "application/json", req_headers: [{"User-Agent", "AlfredBot"}], timeout: 20_000
-    ]
-  ],
-  slack_channel: System.get_env("UPTIME_CHANNEL") || "general"
+# config :alfred_bot, AlfredBot.Responders.Uptime,
+#   schedule: "*/5 * * * *",
+#   enabled: true,
+#   endpoints: [
+#     [
+#       uri: "https://api.brighterlink.io/status", status_code: 200, content: ~s("msg":"ok"), method: "GET",
+#       content_type: "application/json", req_headers: [{"User-Agent", "AlfredBot"}], timeout: 20_000
+#     ]
+#   ],
+#   slack_channel: System.get_env("UPTIME_CHANNEL") || "general"
 
 config :alfred_bot, AlfredBot.Robot,
   adapter: Hedwig.Adapters.Slack,
@@ -49,20 +49,20 @@ config :alfred_bot, AlfredBot.Robot,
   responders: [
     {Hedwig.Responders.Help, []},
     {AlfredBot.Responders.GMap, []},
-    {AlfredBot.Responders.Pwned, []},
-    {AlfredBot.Responders.Quote, []},
+    # {AlfredBot.Responders.Pwned, []},
+    # {AlfredBot.Responders.Quote, []},
     {AlfredBot.Responders.Slap, []},
     {AlfredBot.Responders.Time, []},
     {AlfredBot.Responders.TimeConvert, []},
-    {AlfredBot.Responders.EncodeDecode, []},
+    # {AlfredBot.Responders.EncodeDecode, []},
     {AlfredBot.Responders.Isup, []},
     {AlfredBot.Responders.RandomInsult, []},
     {AlfredBot.Responders.HTTPCat, []},
-    {AlfredBot.Responders.Howdoi, []},
-    {AlfredBot.Responders.CommitMsg, []},
+    # {AlfredBot.Responders.Howdoi, []},
+    # {AlfredBot.Responders.CommitMsg, []},
     {AlfredBot.Responders.CLIFu, []},
-    {AlfredBot.Responders.Whois, []},
-    {AlfredBot.Responders.GitTip, []}
+    {AlfredBot.Responders.Whois, []}
+    # {AlfredBot.Responders.GitTip, []}
   ]
 
 config :quantum, timezone: System.get_env("SYSTEM_TIME") || "America/Sao_Paulo"
