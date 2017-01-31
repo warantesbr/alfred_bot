@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.Isup do
+defmodule AlfredBot.Responders.Isup do
   @moduledoc """
   checks against https://isitup.org/<domain>.json if the given site is down or not
   """
   use Hedwig.Responder
-  import ExMustang.Utils, only: [useragent: 0, parse_domain: 1]
+  import AlfredBot.Utils, only: [useragent: 0, parse_domain: 1]
 
   @usage """
   isitup <domain> - checks if given domain is up or not

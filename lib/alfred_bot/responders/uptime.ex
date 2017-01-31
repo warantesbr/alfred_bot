@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.Uptime do
+defmodule AlfredBot.Responders.Uptime do
   @moduledoc """
   Run uptime check against list of endpoints
   """
 
-  import ExMustang.Utils
+  import AlfredBot.Utils
 
   def run do
     result = config()[:endpoints]
@@ -65,5 +65,5 @@ defmodule ExMustang.Responders.Uptime do
     send(msg)
   end
 
-  defp config, do: Application.get_env(:ex_mustang, __MODULE__)
+  defp config, do: Application.get_env(:alfred_bot, __MODULE__)
 end

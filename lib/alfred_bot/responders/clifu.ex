@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.CLIFu do
+defmodule AlfredBot.Responders.CLIFu do
   @moduledoc """
   A commandlinefu.com responder that gets cli goodies
   """
   use Hedwig.Responder
-  import ExMustang.Utils, only: [useragent: 0]
+  import AlfredBot.Utils, only: [useragent: 0]
 
   @base_url "http://www.commandlinefu.com/commands"
   @random_url "#{@base_url}/random/json"

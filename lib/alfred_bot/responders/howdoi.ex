@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.Howdoi do
+defmodule AlfredBot.Responders.Howdoi do
   @moduledoc """
   Implements [howdoi](https://github.com/gleitz/howdoi) like functionality
   """

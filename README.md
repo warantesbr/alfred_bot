@@ -1,18 +1,9 @@
-# ex_mustang
+# Alfred Bot
 
-> A simple, clueless bot
-
-![Mustang](images/mustang.jpg)
-
-ExMustang is a bot for Slack written in Elixir. While ExMustang is written for Slack, the responder modules should work fine with other Hedwig adapters as well. If you like Mustang, please use [Mustang](images/mustang.jpg) as bot image if possible :)
+> Seu mordomo versão Bot ;)
 
 _Warning: This is a work in progress._
 
-![Example](images/example.png)
-
-![Example](images/example2.png)
-
-![Example](images/example3.png)
 
 ### Setup
 
@@ -39,87 +30,31 @@ export UPTIME_CHANNEL="critical"
 mix run --no-halt
 ```
 
-### Scheduled Notifications
-
-#### Github Pull Requests Watcher
-
-You can configure github token by setting `GITHUB_TOKEN`. Also, you can pass list of repos to watch by updating [config](config/config.exs#L11-L17). There are bunch of other stuffs you can configure such as schedule (which follows cron format), slack channel and thresholds.
-
-#### Standup Reminder
-
-The standup reminder reminds us when its standup time. Our nature is that we either forget track of time or are too lazy to remember about it. This does not make you better at attending standup but is more of a satire for us. You can configure message and other bunch of stuffs on [config](config/config.exs#L5-L9)
-
-#### Have I Been Pwned Checker
-
-The hibp checker can check list of accounts against [haveibeenpwned.com](https://haveibeenpwned.com)
-by using [ExPwned](https://github.com/techgaun/ex_pwned). You can set the appropriate configuration on config.exs.
-
-```elixir
-# config below runs hibp check once a day and posts if any found breach to configured slack channel
-config :ex_mustang, ExMustang.Responders.Pwned,
-  schedule: "0 * */1 * *",
-  enabled: true,
-  accounts: [
-    "abc@example.com",
-    "def@example.com"
-  ],
-  slack_channel: System.get_env("PWN_CHANNEL") || "general"
-```
-
-#### Uptime Monitoring
-
-ExMustang supports simple uptime monitoring and can perform periodic uptime checks against given set of endpoints.
-The config block looks like below:
-
-```elixir
-config :ex_mustang, ExMustang.Responders.Uptime,
-  schedule: "*/5 * * *",
-  enabled: true,
-  endpoints: [
-    [
-      uri: "https://api.brighterlink.io/status", status_code: 200, content: ~s("msg":"ok"), method: "GET",
-      content_type: "application/json", req_headers: [{"User-Agent", "ExMustang"}], timeout: 20_000
-    ]
-  ],
-  slack_channel: System.get_env("UPTIME_CHANNEL") || "general"
-```
-
-The `endpoints` section is where you define the endpoints you're willing to perform uptime check against.
-
-- `uri` - the endpoint to hit
-- `status_code` - expected status code
-- `content` - expected response body content (supports both string and regular expression)
-- `method` - one of `GET`, `POST`, `PUT`, `PATCH` and `DELETE`
-- `body` - body to send as part of `POST`, `PUT` or `PATCH` requests
-- `content_type` - expected content type header value
-- `req_headers` - list of tuples of request headers to send
-- `timeout` - maximum timeout before request fails
-
 ### Responders
 
 Currently, there are following responders and these should ideally work with any Hedwig adapters:
 
-- `ExMustang.Responders.GMap` - gives you google maps search result for your search queries.
-- `ExMustang.Responders.Pwned` -
-- `ExMustang.Responders.Quote` - gives you random funny quote
-- `ExMustang.Responders.Slap` - slaps another user
-- `ExMustang.Responders.Time` - gives time on given timezone (without timezone, uses local timezone of machine ExMustang is running on)
-- `ExMustang.Responders.TimeConvert` - converts given unix timestamp to ISO8601 format
-- `ExMustang.Responders.EncodeDecode` - encoding/decoding tools
-- `ExMustang.Responders.Isup` - checks if a site is up or not via isitup.org API
-- `ExMustang.Responders.RandomInsult` - insults a user with random insults from randominsults.net
-- `ExMustang.Responders.HTTPCat` - gets a cat for corresponding http status code
-- `ExMustang.Responders.Howdoi` - tries to find answer for programming questions
-- `ExMustang.Responders.CommitMsg` - Get random commit messages from http://whatthecommit.com/index.txt
-- `ExMustang.Responders.CLIFu` - Gets clifu gems from http://www.commandlinefu.com
-- `ExMustang.Responders.Whois` - performs a whois query using https://dnsquery.org
-- `ExMustang.Responders.GitTip` - get a random git tip (with support for keywords)
+- `AlfredBot.Responders.GMap` - gives you google maps search result for your search queries.
+- `AlfredBot.Responders.Pwned` -
+- `AlfredBot.Responders.Quote` - gives you random funny quote
+- `AlfredBot.Responders.Slap` - slaps another user
+- `AlfredBot.Responders.Time` - gives time on given timezone (without timezone, uses local timezone of machine AlfredBot is running on)
+- `AlfredBot.Responders.TimeConvert` - converts given unix timestamp to ISO8601 format
+- `AlfredBot.Responders.EncodeDecode` - encoding/decoding tools
+- `AlfredBot.Responders.Isup` - checks if a site is up or not via isitup.org API
+- `AlfredBot.Responders.RandomInsult` - insults a user with random insults from randominsults.net
+- `AlfredBot.Responders.HTTPCat` - gets a cat for corresponding http status code
+- `AlfredBot.Responders.Howdoi` - tries to find answer for programming questions
+- `AlfredBot.Responders.CommitMsg` - Get random commit messages from http://whatthecommit.com/index.txt
+- `AlfredBot.Responders.CLIFu` - Gets clifu gems from http://www.commandlinefu.com
+- `AlfredBot.Responders.Whois` - performs a whois query using https://dnsquery.org
+- `AlfredBot.Responders.GitTip` - get a random git tip (with support for keywords)
 
 For Google Maps search, you have to set `GOOGLE_API_KEY` which has access to call google places api.
 
 ```shell
-mustang help - Displays all of the help commands that mustang knows about.
-mustang help <query> - Displays all help commands that match <query>.
+alfred help - Displays all of the help commands that alfred knows about.
+alfred help <query> - Displays all help commands that match <query>.
 gmap <search_term> - Replies with the information from google places/maps.
 pwned <search_account> - Checks to see if an account has been breached or not
 quote - Replies with a random quote.
@@ -136,13 +71,3 @@ commitmsg - get a random commit message
 clifu [search_word] - get clifu gem (gives random clifu if no keyword is passed)
 whois <domain> - gives whois query for given domain
 ```
-
-### Changelog
-
-The detail changelog is available [HERE](CHANGELOG.md)
-
-### About Mustang
-
-Mustang (pronounced like `moostang` not like the `Ford Mustang`; I don't know phonetics) is my best friend whom I had to leave back in Nepal. After surviving [April 2015 Earthquake](https://en.wikipedia.org/wiki/April_2015_Nepal_earthquake), we lived together for a while and I had to leave him back in Nepal. Below is the pic post-earthquake.
-
-![Mustang and Me](images/me_mustang.jpg)

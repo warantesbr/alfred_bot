@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.TimeConvert do
+defmodule AlfredBot.Responders.TimeConvert do
   @moduledoc """
   Time conversion related stuff.
   """

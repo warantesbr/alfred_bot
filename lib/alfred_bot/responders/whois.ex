@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.Whois do
+defmodule AlfredBot.Responders.Whois do
   @moduledoc """
   Uses dnsquery.org to get whois information for given domain
   """
   use Hedwig.Responder
-  import ExMustang.Utils, only: [useragent: 0, parse_domain: 1]
+  import AlfredBot.Utils, only: [useragent: 0, parse_domain: 1]
 
   @base_url "https://dnsquery.org/whois,request"
 

@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.CommitMsg do
+defmodule AlfredBot.Responders.CommitMsg do
   @moduledoc """
   Get random commit messages from http://whatthecommit.com/index.txt
   """
   use Hedwig.Responder
-  import ExMustang.Utils, only: [useragent: 0]
+  import AlfredBot.Utils, only: [useragent: 0]
 
   @url "http://whatthecommit.com/index.txt"
 

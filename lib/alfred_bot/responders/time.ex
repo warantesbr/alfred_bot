@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.Time do
+defmodule AlfredBot.Responders.Time do
   @moduledoc """
   Gives back time based on the given timezone
 

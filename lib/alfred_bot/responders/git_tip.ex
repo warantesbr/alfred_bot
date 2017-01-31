@@ -1,14 +1,14 @@
-defmodule ExMustang.Responders.GitTip do
+defmodule AlfredBot.Responders.GitTip do
   @moduledoc """
   Gives git tips to user.
   The git-tips are taken from https://github.com/git-tips/tips/blob/master/tips.json
   """
 
-  import ExMustang.Utils, only: [useragent: 0]
+  import AlfredBot.Utils, only: [useragent: 0]
   use Hedwig.Responder
 
   @tip_json "https://raw.githubusercontent.com/git-tips/tips/master/tips.json"
-  @tmpfile "#{System.tmp_dir}/git-tip-exmustang.json"
+  @tmpfile "#{System.tmp_dir}/git-tip-alfredbot.json"
 
   @usage """
   gittip [keyword] - Get a random git tip for given keyword

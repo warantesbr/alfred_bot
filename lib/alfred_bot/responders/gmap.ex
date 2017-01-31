@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.GMap do
+defmodule AlfredBot.Responders.GMap do
   @moduledoc """
   Search places on Slack and get direct link to places by just typing `gmap <search term>`
   """

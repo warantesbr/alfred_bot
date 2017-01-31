@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.RandomInsult do
+defmodule AlfredBot.Responders.RandomInsult do
   @moduledoc """
   Sends random insult to a user
   """
   use Hedwig.Responder
-  import ExMustang.Utils, only: [useragent: 0]
+  import AlfredBot.Utils, only: [useragent: 0]
 
   @base_url "http://www.randominsults.net/"
 

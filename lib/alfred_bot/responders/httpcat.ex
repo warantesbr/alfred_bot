@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.HTTPCat do
+defmodule AlfredBot.Responders.HTTPCat do
   @moduledoc """
   Gets a HTTP Status Code Cat of https://http.cat
   """

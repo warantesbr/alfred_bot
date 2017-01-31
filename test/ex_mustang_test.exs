@@ -1,6 +1,6 @@
-defmodule ExMustangTest do
+defmodule AlfredBotTest do
   use ExUnit.Case
-  doctest ExMustang
+  doctest AlfredBot
 
   test "the truth" do
     assert 1 + 1 == 2

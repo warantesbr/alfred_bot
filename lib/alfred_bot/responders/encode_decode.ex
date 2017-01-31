@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.EncodeDecode do
+defmodule AlfredBot.Responders.EncodeDecode do
   @moduledoc """
   Encode/Decode module that can perform generic encoding/decoding
   """

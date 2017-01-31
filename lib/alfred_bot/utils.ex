@@ -1,6 +1,6 @@
-defmodule ExMustang.Utils do
+defmodule AlfredBot.Utils do
   @moduledoc """
-  Module consisting of all the convenience functions for `ExMustang` to operate
+  Module consisting of all the convenience functions for `AlfredBot` to operate
   """
 
   @doc """
@@ -38,7 +38,7 @@ defmodule ExMustang.Utils do
   end
 
   @doc false
-  def useragent, do: {"User-Agent", "ExMustang"}
+  def useragent, do: {"User-Agent", "AlfredBot"}
 
   @doc """
   Parses given domain based on how it comes. If it comes from slack, it is handled properly
@@ -52,5 +52,5 @@ defmodule ExMustang.Utils do
     end
   end
 
-  defp pid, do: :global.whereis_name("mustang")
+  defp pid, do: :global.whereis_name("alfred")
 end

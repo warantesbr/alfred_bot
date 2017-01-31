@@ -1,9 +1,9 @@
-defmodule ExMustang.Responders.Standup do
+defmodule AlfredBot.Responders.Standup do
   @moduledoc """
   Module that sends message when its Standup time
   """
 
-  import ExMustang.Utils
+  import AlfredBot.Utils
 
   @doc """
   Function to call for sending standup notice
@@ -18,5 +18,5 @@ defmodule ExMustang.Responders.Standup do
     send(msg)
   end
 
-  defp config, do: Application.get_env(:ex_mustang, ExMustang.Responders.Standup)
+  defp config, do: Application.get_env(:alfred_bot, AlfredBot.Responders.Standup)
 end

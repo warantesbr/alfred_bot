@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.Slap do
+defmodule AlfredBot.Responders.Slap do
   @moduledoc """
   Slap user on slack around a bit with a large trout
 

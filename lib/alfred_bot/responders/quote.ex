@@ -1,4 +1,4 @@
-defmodule ExMustang.Responders.Quote do
+defmodule AlfredBot.Responders.Quote do
   @moduledoc """
   Random Quote, FTW!
 
@@ -6,7 +6,7 @@ defmodule ExMustang.Responders.Quote do
   """
   use Hedwig.Responder
 
-  @quotes_file Application.get_env(:ex_mustang, ExMustang.Responders.Quote)[:quote_src]
+  @quotes_file Application.get_env(:alfred_bot, AlfredBot.Responders.Quote)[:quote_src]
   @usage """
   quote - Replies with a random quote.
   """

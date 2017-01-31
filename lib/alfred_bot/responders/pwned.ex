@@ -1,10 +1,10 @@
-defmodule ExMustang.Responders.Pwned do
+defmodule AlfredBot.Responders.Pwned do
   @moduledoc """
   Search an account for pwnage results on haveibeenpwned.com
   """
   use Hedwig.Responder
   alias ExPwned.Breaches
-  import ExMustang.Utils
+  import AlfredBot.Utils
 
   @usage """
   pwned <search_account> - Checks to see if an account has been breached or not
@@ -74,5 +74,5 @@ defmodule ExMustang.Responders.Pwned do
   end
   defp norm_account(account), do: account
 
-  defp config, do: Application.get_env(:ex_mustang, ExMustang.Responders.Pwned)
+  defp config, do: Application.get_env(:alfred_bot, AlfredBot.Responders.Pwned)
 end

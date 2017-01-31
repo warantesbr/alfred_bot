@@ -1,12 +1,12 @@
-defmodule ExMustang.Mixfile do
+defmodule AlfredBot.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ex_mustang,
+    [app: :alfred_bot,
      version: "0.2.0",
      elixir: "~> 1.3",
-     description: "A simple, clueless bot and collection of responders",
-     source_url: "https://github.com/techgaun/ex_mustang",
+     description: "Seu mordomo versão Bot",
+     source_url: "https://github.com/warantesbr/alfred_bot",
      package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -20,7 +20,7 @@ defmodule ExMustang.Mixfile do
   def application do
     [applications: [:logger, :hedwig_slack, :quantum, :tentacat, :ex_google, :timex,
                     :ex_pwned, :floki],
-     mod: {ExMustang, []}]
+     mod: {AlfredBot, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -48,10 +48,10 @@ defmodule ExMustang.Mixfile do
   defp package do
     [
       maintainers: [
-        "Samar Acharya"
+        "Willian Arantes"
       ],
-      licenses: ["Apache-2.0"],
-      links: %{"GitHub" => "https://github.com/techgaun/ex_mustang"}
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/warantesbr/alfred_bot"}
     ]
   end
 end

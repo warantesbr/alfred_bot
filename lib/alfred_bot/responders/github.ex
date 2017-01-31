@@ -1,10 +1,10 @@
-defmodule ExMustang.Responders.Github do
+defmodule AlfredBot.Responders.Github do
   @moduledoc """
   Retrieves list of open PRs in provided repos, compares the time they are open
   and sends message about the PRs that are open for too long.
   """
 
-  import ExMustang.Utils
+  import AlfredBot.Utils
 
   def run do
     gh_client = Tentacat.Client.new(%{access_token: config()[:access_token]})
@@ -46,5 +46,5 @@ defmodule ExMustang.Responders.Github do
     send(msg)
   end
 
-  defp config, do: Application.get_env(:ex_mustang, ExMustang.Responders.Github)
+  defp config, do: Application.get_env(:alfred_bot, AlfredBot.Responders.Github)
 end
